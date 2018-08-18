@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.testops.tr02.daos.UserDao">
+    <resultMap id="userMap" type="com.testops.tr02.entities.User">
+        <id column="user_id" property="userId" />
+        <result column="user_name" property="username" />
+        <result column="user_password" property="password" />
+    </resultMap>
+    <select id="getUserByName" parameterType="string" resultMap="userMap">
+        select * from user_info where user_name = #{name}
+    </select>
+</mapper>
